@@ -25,6 +25,7 @@ int			main(int ac, char **av)
 		g_farm->fd = open(av[1], O_RDWR);
 	g_farm->start = 0;
 	g_farm->end = 0;
+	g_farm->sf_way = 0;
 	get_num_ants();
 	the_rooms();
 	free_rooms(&g_rooms);

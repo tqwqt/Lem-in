@@ -122,18 +122,16 @@ int			mark_the_way(t_rooms **room)
 {
 	t_rooms		*r;
 	int			i;
-	int			s_f_way;
 
 	r = *room;
 	i = 0;
-	s_f_way = 0;
 	r->marked = 1;
 	while (r->links && r->links[i] != 0)
 	{
 		if (is_s_in_links(r->links) == 1)
 		{
 			r->marked = 0;
-			s_f_way = 1;
+			g_farm->sf_way = 1;
 		}
 		else if (r->links[i]->marked == 0 && r->links[i]->is_f != 1) //&& r->links[i]->dist == 2147483647)
 		{
@@ -144,7 +142,7 @@ int			mark_the_way(t_rooms **room)
 		i++;
 	}
 	r->marked = 0;
-	return (s_f_way);
+	return (g_farm->sf_way);
 }
 
 int			is_s_in_links(t_rooms	**links)

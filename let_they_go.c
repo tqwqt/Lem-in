@@ -23,10 +23,7 @@ void			lets_go()//space after cor
 	int			ind;
 
 	i = -1;
-	//res = ft_strnew(0);
 	ants = get_ants(g_farm->ants, get_start());
-//	while (++i < g_farm->ants)
-	//	printf("ant[%i], room=%s\n", ants[i]->number, ants[i]->room->name);
 	fin = get_fin();
 	while (g_farm->ants > fin->ants_in)
 	{
@@ -43,13 +40,11 @@ void			lets_go()//space after cor
 					ants[i]->room->ants_in = 1;
 				else
 					ants[i]->room->ants_in++;
-			}	//res = ft_strjoin(res, get_res(ants[i]->number, ants[i]->room->links[ind]->name));
+			}
 
 		}
 		printf("\n");
-	//	printf("ants in fin = %d, need = %d\n", fin->ants_in, g_farm->ants);
 	}
-	//free_ants(&ants);
 }
 
 int				lin_len(t_rooms **links)
@@ -77,8 +72,15 @@ int				ind_of_empty_r(t_rooms *r)
 	i = -1;
 	len = -1;
 	while (r->links[++i])
-		if ((r->links[i]->ants_in == 0 || r->links[i]->is_f == 1) && r->links[i]->dist != 2147483647)
+	{
+		if (r->links[i]->is_f == 1)
+		{
+			free(indxs);
+			return (i);
+		}
+		if (r->links[i]->ants_in == 0 && r->links[i]->dist != 2147483647)
 			indxs[++len] = i;
+	}
 	i = -1;
 	if (indxs[0] == -1)
 	{

@@ -23,6 +23,7 @@ typedef struct		s_struct
 	int 			fd;
 	short			start;
 	short			end;
+	short			sf_way;
 }					t_farm;
 
 typedef struct		s_list_r
