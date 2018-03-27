@@ -42,40 +42,10 @@ static	char	**split_this(const char *s, char c, char **arr, int w)
 			i++;
 		arr[++z] = ft_strsub(s, p, i - p);
 		p = ++i;
-//		i++;
 	}
 	arr[++z] = NULL;
 	return (arr);
 }
-
-static	char	**ft_splt3(const char *s, char c, char **arr, int w)
-{
-	int			x;
-	int			i;
-	int			b;
-	int			z;
-
-	i = -1;
-	b = ft_splt4_w(s, c);
-	z = -1;
-	while (b)
-		if (s[++i] != c)
-		{
-			w = i - 1;
-			x = -1;
-			while (s[++w] != c && s[w])
-				if (s[w] != c && (s[w + 1] == c || s[w + 1] == '\0'))
-					if (b-- && ((arr[++z] = ft_strnew(w - i + 1)) != NULL))
-					{
-						while (i <= w && s[i])
-							arr[z][++x] = s[i++];
-						arr[z][++x] = '\0';
-					}
-		}
-	arr[z + 1] = NULL;
-	return (arr);
-}
-
 
 char			**ft_strsplit(const char *s, char c)
 {
@@ -84,6 +54,6 @@ char			**ft_strsplit(const char *s, char c)
 
 	b = ft_splt4_w(s, c);
 	if (((arr = malloc(sizeof(char*) * (b + 1))) != 0) && s)
-		arr = (char **) split_this(s, c, arr, b);//ft_splt3(s, c, arr, -1);
+		arr = split_this(s, c, arr, b);
 	return (arr);
 }

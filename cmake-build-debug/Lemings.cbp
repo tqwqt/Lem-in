@@ -37,13 +37,14 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="lem-in">
-				<Option output="/Users/vhavryle/work_vh/Lemings/cmake-build-debug/lem-in" prefix_auto="0" extension_auto="0"/>
+			<Target title="Lemings">
+				<Option output="/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Lemings" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/vhavryle/work_vh/Lemings/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -52,19 +53,20 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 lem-in"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lemings"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="lem-in/fast">
-				<Option output="/Users/vhavryle/work_vh/Lemings/cmake-build-debug/lem-in" prefix_auto="0" extension_auto="0"/>
+			<Target title="Lemings/fast">
+				<Option output="/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Lemings" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/vhavryle/work_vh/Lemings/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -73,7 +75,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 lem-in/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lemings/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vhavryle/work_vh/Lemings/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -81,220 +83,220 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/gnl/get_next_line.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/gnl/get_next_line.h">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/lemin.h">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/let_they_go.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_atoi.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_bzero.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_find_next_prime.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isalnum.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isalpha.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isascii.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isdigit.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isprime.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_isprint.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_itoa.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_itoa_base.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstadd.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstdel.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstdelone.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstiter.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstmap.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_lstnew.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memalloc.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memccpy.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memchr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memcmp.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memcpy.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memdel.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memmove.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_memset.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putchar.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putchar_fd.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putendl.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putendl_fd.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putnbr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putnbr_fd.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putstr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_putstr_fd.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_str_is_alpha.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_str_is_digit.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_str_is_num.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strcat.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strchr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strclr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strcmp.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strcpy.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strdel.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strdup.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strequ.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_striter.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_striteri.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strjoin.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strlcat.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strlen.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strmap.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strmapi.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strncat.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strncmp.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strncpy.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strnequ.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strnew.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strnstr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strrchr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strsplit.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strstr.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strsub.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_strtrim.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_tolower.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/ft_toupper.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/libft/libft.h">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/links.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/lists.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/main.c">
-			<Option target="lem-in"/>
+			<Option target="Lemings"/>
 		</Unit>
 		<Unit filename="/Users/vhavryle/work_vh/Lemings/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

@@ -14,17 +14,15 @@
 #include "lemin.h"
 #include <stdio.h>
 
-void			lets_go()//space after cor
+void lets_go(t_rooms **head)
 {
 	t_rooms		*fin;
 	t_ant		**ants;
-	//char		*res;
 	int 		i;
 	int			ind;
 
-	i = -1;
-	ants = get_ants(g_farm->ants, get_start());
-	fin = get_fin();
+	ants = get_ants(g_farm->ants, get_start(head));
+	fin = get_fin(head);
 	while (g_farm->ants > fin->ants_in)
 	{
 		i = -1;
@@ -41,10 +39,10 @@ void			lets_go()//space after cor
 				else
 					ants[i]->room->ants_in++;
 			}
-
 		}
 		printf("\n");
 	}
+	free_ants(&ants);
 }
 
 int				lin_len(t_rooms **links)
@@ -95,11 +93,11 @@ int				ind_of_empty_r(t_rooms *r)
 	return (len);
 }
 
-t_rooms			*get_fin()
+t_rooms *get_fin(t_rooms **head)
 {
 	t_rooms		*h;
 
-	h = g_rooms;
+	h = *head;
 	while (h && h->is_f != 1)
 		h = h->next;
 	if (h && h->is_f == 1)
@@ -107,11 +105,11 @@ t_rooms			*get_fin()
 	return (0);
 }
 
-t_rooms			*get_start()
+t_rooms *get_start(t_rooms **head)
 {
 	t_rooms		*h;
 
-	h = g_rooms;
+	h = *head;
 	while (h && h->is_s != 1)
 		h = h->next;
 	if (h && h->is_s == 1)

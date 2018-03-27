@@ -51,28 +51,29 @@ t_rooms *new_room_alloc(int *cors, short is_s, short is_f, char *name)
 	return (new);
 }
 
-void		push_list_r_back(t_rooms **head, t_rooms *to_push)
+void push_list_r_back(t_rooms **head, t_rooms *to_push)
 {
 	t_rooms	*curr;
 
+	curr = NULL;
 	curr = *head;
-	if (curr == NULL)
+	if (curr)
 	{
-		*head = to_push;
-		to_push->next = NULL;
-		return ;
+		while (curr->next)
+			curr = curr->next;
+		curr->next = to_push;
 	}
-	while (curr->next)
-		curr = curr->next;
-	curr->next = to_push;
-	to_push->next = NULL;
+	else
+		*head = to_push;
+
 }
 
-int			check_cors(int x, int y)
+
+int check_cors(int x, int y, t_rooms *head)
 {
 	t_rooms	*tmp;
 
-	tmp = g_rooms;
+	tmp = head;
 	while (tmp)
 	{
 		if (tmp->cors[0] == x && tmp->cors[1] == y)

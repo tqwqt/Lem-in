@@ -12,7 +12,7 @@
 
 #include "lemin.h"
 
-void the_links(char *line)
+void the_links(char *line, t_rooms **head)
 {	
 	int		ret;
 	t_rooms	*r;
@@ -22,32 +22,30 @@ void the_links(char *line)
 	f = 0;
 	if (g_farm->start == 0 || g_farm->end == 0)
 	{
-		free_rooms(&g_rooms);
-		free(g_farm);
+		free_rooms(head);
+		ft_strdel(&line);
 		error_exit("there is no start || end room");
 	}
 	while (ret > 0)
 	{
 		write_info(line);
 		if (is_comment(line) == 0)
-			if (is_link(line) == 0)
+			if (is_link(line, &head) == 0)
 			{
 				ft_strdel(&line);
 				break ;
 			}
-		if (f == 1)
-			ft_strdel(&line);
+		ft_strdel(&line);
 		ret = get_next_line(g_farm->fd, &line);
-		f = 1;
 	}
-	r = get_fin();
+	r = get_fin(head);
 	if (mark_the_way(&r) == 0)
 	{
-		free_rooms(&g_rooms);
-		free(g_farm);
+		free_rooms(head);
+//		free(g_farm);
 		error_exit("no connection between start & end");
 	}
-	lets_go();
+	lets_go(head);
 }
 
 
@@ -61,7 +59,7 @@ int			is_comment(char *line)
 	return (0);
 }
 
-int 		is_link(char *line)
+int is_link(char *line, t_rooms ***head)
 {
 	char	**split;
 	int 	i;
@@ -78,8 +76,8 @@ int 		is_link(char *line)
 		free_arr(&split);
 		return (0);
 	}
-	r1 = find_by_name(split[0]);
-	r2 = find_by_name(split[1]);
+	r1 = find_by_name(split[0], &head);
+	r2 = find_by_name(split[1], &head);
 	if (r1 && r2)
 	{
 		if (ft_strequ(r1->name, r2->name))
@@ -101,11 +99,11 @@ int 		is_link(char *line)
 	return (1);
 }
 
-t_rooms			*find_by_name(char	*name)
+t_rooms *find_by_name(char *name, t_rooms ****head)
 {
 	t_rooms		*tmp;
 
-	tmp = g_rooms;
+	tmp = ***head;
 	if (name)
 	{	
 		while (tmp)
@@ -132,8 +130,7 @@ int			mark_the_way(t_rooms **room)
 		{
 			r->marked = 0;
 			g_farm->sf_way = 1;
-		}
-		else if (r->links[i]->marked == 0 && r->links[i]->is_f != 1) //&& r->links[i]->dist == 2147483647)
+		}		else if (r->links[i]->marked == 0 && r->links[i]->is_f != 1) //&& r->links[i]->dist == 2147483647)
 		{
 			if (links_num(r->links[i]) > 1)
 				r->links[i]->dist = r->dist + 1 < r->links[i]->dist ? r->dist + 1 : r->links[i]->dist ;

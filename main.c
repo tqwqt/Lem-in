@@ -11,7 +11,7 @@ int			main(int ac, char **av)
 {
 	int		fd;
 	char	*line;
-	//t_farm	*farm;
+	t_rooms	*rooms;
 
 	if (ac != 2 && ac != 1)
 	{
@@ -27,73 +27,42 @@ int			main(int ac, char **av)
 	g_farm->end = 0;
 	g_farm->sf_way = 0;
 	get_num_ants();
-	the_rooms();
-	free_rooms(&g_rooms);
+	rooms = NULL;
+	line = the_rooms(&rooms);
+	show_list(rooms);
+	the_links(line, &rooms);
+	free_rooms(&rooms);
 	free(g_farm);
 	return 0;
 }
 
 void		get_num_ants()
 {
-	char	*line;
+	char	*l;
 	int		ret;
 
 	ret = 1;
 	g_farm->ants = -1;
 	while (g_farm->ants == -1 && ret > 0)
 	{
-		ret = get_next_line(g_farm->fd, &line);
-		write_info(line);
-		if (line && !(line[0] == '#' && !ft_strequ("#start", line) && !ft_strequ("#end", line)))
+		ret = get_next_line(g_farm->fd, &l);
+		write_info(l);
+		if (l && !(l[0] == '#' && !ft_strequ("#start", l) && !ft_strequ("#end", l)))
 		{
-			if (ft_str_is_digit(line))
-				g_farm->ants = ft_atoi(line);
+			if (ft_str_is_digit(l))
+				g_farm->ants = ft_atoi(l);
 			else
+			{
+				ft_strdel(&l);
 				error_exit("no valid ants num");
+			}
 		}
-		ft_strdel(&line);
+		ft_strdel(&l);
 	}
+	printf("wtfffff????\n");
 	if (g_farm->ants <= 0)
 		error_exit("ants <= 0");
-}
-
-int			room_validate(char *line, short s, short f) // проверить одинаковые коры комнат
-{
-	char	**data;
-	int		i;
-	int		cors[2];
-
-	i = 0;
-	if (!is_room_spaces(line))
-		error_exit("incorrect number of spaces");
-	data = ft_strsplit(line, ' ');
-	while (data[i] != NULL)
-		i++;
-	if (i != 3)
-	{
-		error_exit("args room != 3");
-		free_data(&data);
-	}
-	if (data[0][0] == 'L')
-	{
-		error_exit("name starts with L");
-		free_data(&data);
-	}
-	if (ft_str_is_digit(data[1]) != 1 || ft_str_is_digit(data[2]) != 1)
-	{
-		error_exit("cors are incorrect");
-		free_data(&data);
-	}
-	cors[0] = ft_atoi(data[1]);
-	cors[1] = ft_atoi(data[2]);
-	if (check_cors(cors[0], cors[1]) == 1)
-	{
-		error_exit("this cors are already exist");
-		free_data(&data);
-	}
-	push_list_r_back(&g_rooms, new_room_alloc(cors, s, f, data[0]));
-	free_data(&data);
-	return (1);
+	//ft_strdel(&line);
 }
 
 int			is_room_spaces(char *line)
@@ -110,26 +79,24 @@ int			is_room_spaces(char *line)
 		return (1);
 	return (0);
 }
-void		the_rooms()//валидация и создание комнат
+char	*the_rooms(t_rooms **head)//валидация и создание комнат
 {
 	char	*line;
 	short	sf[4];
 	int		ret;
 
 	ret = 1;
-	g_rooms = NULL;
 	sf[0] = 0;
 	sf[1] = 0;
 	sf[2] = 0;
 	sf[3] = 0;
+
 	while (ret > 0)
 	{
 		ret = get_next_line(g_farm->fd, &line);
 		if (ft_strchr(line, '-') != NULL)
-		{	//show_list(g_rooms);
-			the_links(line);
-			ft_strdel(&line);
-			return ;
+		{	//*head = rooms;
+			return (line);
 		}
 		write_info(line);
 		if (ft_strequ("##start", line) && sf[2] != 1)//if 2 starts & 2 ends
@@ -153,9 +120,10 @@ void		the_rooms()//валидация и создание комнат
 			error_exit("double ##end");
 		}
 		if (line && line[0] != '#')
-			room_validate(line, sf[0], sf[1]);
+			*head = room_validate(line, sf[0], sf[1], head);
 		ft_strdel(&line);
 	}
+	return (0);
 }
 
 void		write_info(char *info)
@@ -173,7 +141,7 @@ void error_exit(char *info)
 
 	i = 1;
 	printf("ERROR:^%s\n", info);
-	//while (1)
+	free(g_farm);
 	//	i = i;
 	exit(0);
 }
@@ -189,7 +157,8 @@ void		show_list(t_rooms *head)
 {
 	int i;
 //
-
+	if (!head)
+		printf("NULL hEAf\n");
 	while (head)
 	{
 		i = -1;
@@ -203,6 +172,48 @@ void		show_list(t_rooms *head)
 //		}
 		head = head->next;
 	}
+}
+
+t_rooms		*room_validate(char *line, short s, short f, t_rooms **head) // проверить одинаковые коры комнат
+{
+	char	**data;
+	int		i;
+	int		cors[2];
+	t_rooms	*tmp;
+
+	tmp = *head;
+	i = 0;
+	if (!is_room_spaces(line))
+		error_exit("incorrect number of spaces");
+	data = ft_strsplit(line, ' ');
+	while (data[i] != NULL)
+		i++;
+	if (i != 3)
+	{
+		error_exit("args room != 3");
+		free_data(&data);
+	}
+	if (data[0][0] == 'L')
+	{
+		error_exit("name starts with L");
+		free_data(&data);
+	}
+	if (ft_str_is_digit(data[1]) != 1 || ft_str_is_digit(data[2]) != 1)
+	{
+		error_exit("cors are incorrect");
+		free_data(&data);
+	}
+	cors[0] = ft_atoi(data[1]);
+	cors[1] = ft_atoi(data[2]);
+	if (check_cors(cors[0], cors[1], NULL) == 1)
+	{
+		error_exit("this cors are already exist");
+		free_data(&data);
+	}
+	push_list_r_back(&tmp, new_room_alloc(cors, s, f, data[0]));
+	printf("tmp=%s,\n", tmp->name);
+	free_data(&data);
+	return (tmp);
 }
 
 void		free_data(char ***data)
