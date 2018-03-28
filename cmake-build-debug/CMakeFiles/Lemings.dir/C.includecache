@@ -26,20 +26,6 @@ stdlib.h
 ../libft/libft.h
 /Users/vhavryle/work_vh/Lemings/libft/libft.h
 
-/Users/vhavryle/work_vh/Lemings/lemin.h
-stdlib.h
--
-gnl/get_next_line.h
-/Users/vhavryle/work_vh/Lemings/gnl/get_next_line.h
-libft/libft.h
-/Users/vhavryle/work_vh/Lemings/libft/libft.h
-
-/Users/vhavryle/work_vh/Lemings/let_they_go.c
-lemin.h
-/Users/vhavryle/work_vh/Lemings/lemin.h
-stdio.h
--
-
 /Users/vhavryle/work_vh/Lemings/libft/ft_atoi.c
 libft.h
 /Users/vhavryle/work_vh/Lemings/libft/libft.h
@@ -283,26 +269,4 @@ string.h
 -
 stdlib.h
 -
-
-/Users/vhavryle/work_vh/Lemings/links.c
-lemin.h
-/Users/vhavryle/work_vh/Lemings/lemin.h
-
-/Users/vhavryle/work_vh/Lemings/lists.c
-lemin.h
-/Users/vhavryle/work_vh/Lemings/lemin.h
-libft/libft.h
-/Users/vhavryle/work_vh/Lemings/libft/libft.h
-
-/Users/vhavryle/work_vh/Lemings/main.c
-stdio.h
--
-fcntl.h
--
-zconf.h
--
-lemin.h
-/Users/vhavryle/work_vh/Lemings/lemin.h
-gnl/get_next_line.h
-/Users/vhavryle/work_vh/Lemings/gnl/get_next_line.h
 

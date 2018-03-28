@@ -53,6 +53,8 @@ char			**ft_strsplit(const char *s, char c)
 	int			b;
 
 	b = ft_splt4_w(s, c);
+	if (!s)
+		return (NULL);
 	if (((arr = malloc(sizeof(char*) * (b + 1))) != 0) && s)
 		arr = split_this(s, c, arr, b);
 	return (arr);

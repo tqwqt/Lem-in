@@ -135,7 +135,7 @@ CMAKE_OSX_DEPLOYMENT_TARGET:STRING=
 CMAKE_OSX_SYSROOT:STRING=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Lemings
+CMAKE_PROJECT_NAME:STATIC=lem-in
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -194,6 +194,12 @@ Lemings_SOURCE_DIR:STATIC=/Users/vhavryle/work_vh/Lemings
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//Value Computed by CMake
+lem-in_BINARY_DIR:STATIC=/Users/vhavryle/work_vh/Lemings/cmake-build-debug
+
+//Value Computed by CMake
+lem-in_SOURCE_DIR:STATIC=/Users/vhavryle/work_vh/Lemings
 
 
 ########################

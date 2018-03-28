@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
-project(Lemings)
+project(lem-in)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Lemings
+add_executable(lem-in
         gnl/get_next_line.c
         gnl/get_next_line.h
         libft/ft_atoi.c
@@ -71,8 +71,18 @@ add_executable(Lemings
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        lemin.h
-        let_they_go.c
-        links.c
-        lists.c
-        main.c)
+        hdr/lemin.h
+        ft_printf/src/flags.c
+        ft_printf/src/ft_printf.c
+        ft_printf/src/cast_ddi.c
+        ft_printf/src/cast_cs.c
+        ft_printf/src/cast_x.c
+        ft_printf/src/caster.c
+        ft_printf/src/casto.c
+        ft_printf/src/parser.c
+        ft_printf/src/uni.c
+        ft_printf/hdr/libftprintf.h
+        src/let_they_go.c
+        src/links.c
+        src/lists.c
+        src/main.c)

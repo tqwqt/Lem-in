@@ -5,10 +5,6 @@ CMakeFiles/Lemings.dir/gnl/get_next_line.c.o: ../gnl/get_next_line.c
 CMakeFiles/Lemings.dir/gnl/get_next_line.c.o: ../gnl/get_next_line.h
 CMakeFiles/Lemings.dir/gnl/get_next_line.c.o: ../libft/libft.h
 
-CMakeFiles/Lemings.dir/let_they_go.c.o: ../gnl/get_next_line.h
-CMakeFiles/Lemings.dir/let_they_go.c.o: ../lemin.h
-CMakeFiles/Lemings.dir/let_they_go.c.o: ../let_they_go.c
-CMakeFiles/Lemings.dir/let_they_go.c.o: ../libft/libft.h
 
 CMakeFiles/Lemings.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 CMakeFiles/Lemings.dir/libft/ft_atoi.c.o: ../libft/libft.h
@@ -176,18 +172,6 @@ CMakeFiles/Lemings.dir/libft/ft_tolower.c.o: ../libft/libft.h
 
 CMakeFiles/Lemings.dir/libft/ft_toupper.c.o: ../libft/ft_toupper.c
 
-CMakeFiles/Lemings.dir/links.c.o: ../gnl/get_next_line.h
-CMakeFiles/Lemings.dir/links.c.o: ../lemin.h
-CMakeFiles/Lemings.dir/links.c.o: ../libft/libft.h
-CMakeFiles/Lemings.dir/links.c.o: ../links.c
 
-CMakeFiles/Lemings.dir/lists.c.o: ../gnl/get_next_line.h
-CMakeFiles/Lemings.dir/lists.c.o: ../lemin.h
-CMakeFiles/Lemings.dir/lists.c.o: ../libft/libft.h
-CMakeFiles/Lemings.dir/lists.c.o: ../lists.c
 
-CMakeFiles/Lemings.dir/main.c.o: ../gnl/get_next_line.h
-CMakeFiles/Lemings.dir/main.c.o: ../lemin.h
-CMakeFiles/Lemings.dir/main.c.o: ../libft/libft.h
-CMakeFiles/Lemings.dir/main.c.o: ../main.c
 
