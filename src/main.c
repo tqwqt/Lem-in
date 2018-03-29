@@ -4,24 +4,17 @@
 #include "../hdr/lemin.h"
 
 
-int			main(int ac, char **av)
+int			main(void)
 {
 	char	*line;
 	t_rooms	*rooms;
 
-	if (ac != 2 && ac != 1)
-	{
-		error_exit("incorrect number of args");
-		return 0;
-	}
 	g_farm = malloc(sizeof(t_farm));
-	if (ac == 1)
-		g_farm->fd = 0;
-	else
-		g_farm->fd = open(av[1], O_RDWR);
+	g_farm->fd = 0;
 	g_farm->start = 0;
 	g_farm->end = 0;
 	g_farm->sf_way = 0;
+	g_farm->is_first_ant = 1;
 	get_num_ants();
 	rooms = NULL;
 	line = the_rooms(&rooms);
@@ -74,7 +67,7 @@ int			is_room_spaces(char *line)
 	return (0);
 }
 
-char	*the_rooms(t_rooms **head)//валидация и создание комнат
+char		*the_rooms(t_rooms **head)//валидация и создание комнат
 {
 	char	*line;
 	short	sf[4];
@@ -85,7 +78,6 @@ char	*the_rooms(t_rooms **head)//валидация и создание комн
 	sf[1] = 0;
 	sf[2] = 0;
 	sf[3] = 0;
-
 	while (ret > 0)
 	{
 		ret = get_next_line(g_farm->fd, &line);
@@ -138,12 +130,8 @@ void error_exit(char *info)
 	int i;
 
 	i = 1;
-
-	//info = NULL;
 	ft_printf("ERROR:^%s\n", info);
-	//ft_printf("ERROR\n");
 	free(g_farm);
-	//	i = i;
 	exit(0);
 }
 
@@ -155,7 +143,7 @@ void error_cont(char *info)
 void		show_list(t_rooms *head)
 {
 	int i;
-//
+
 	if (!head)
 		ft_printf("NULL hEAf\n");
 	while (head)

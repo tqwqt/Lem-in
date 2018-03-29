@@ -4,8 +4,19 @@ project(lem-in)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(lem-in
+        ft_printf/hdr/libftprintf.h
+        ft_printf/src/cast_cs.c
+        ft_printf/src/cast_ddi.c
+        ft_printf/src/cast_x.c
+        ft_printf/src/caster.c
+        ft_printf/src/casto.c
+        ft_printf/src/flags.c
+        ft_printf/src/ft_printf.c
+        ft_printf/src/parser.c
+        ft_printf/src/uni.c
         gnl/get_next_line.c
         gnl/get_next_line.h
+        hdr/lemin.h
         libft/ft_atoi.c
         libft/ft_bzero.c
         libft/ft_find_next_prime.c
@@ -71,17 +82,6 @@ add_executable(lem-in
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        hdr/lemin.h
-        ft_printf/src/flags.c
-        ft_printf/src/ft_printf.c
-        ft_printf/src/cast_ddi.c
-        ft_printf/src/cast_cs.c
-        ft_printf/src/cast_x.c
-        ft_printf/src/caster.c
-        ft_printf/src/casto.c
-        ft_printf/src/parser.c
-        ft_printf/src/uni.c
-        ft_printf/hdr/libftprintf.h
         src/let_they_go.c
         src/links.c
         src/lists.c

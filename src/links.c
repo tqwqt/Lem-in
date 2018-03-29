@@ -12,14 +12,11 @@
 
 #include "../hdr/lemin.h"
 
-void the_links(char *line, t_rooms **head)
-{	
+void		the_links(char *line, t_rooms **head)
+{
 	int		ret;
-	t_rooms	*r;
-	short	f;
 
 	ret = 1;
-	f = 0;
 	if (g_farm->start == 0 || g_farm->end == 0)
 	{
 		free_rooms(head);
@@ -38,16 +35,21 @@ void the_links(char *line, t_rooms **head)
 		ft_strdel(&line);
 		ret = get_next_line(g_farm->fd, &line);
 	}
-	r = get_fin(head);
-	if (mark_the_way(&r) == 0)
-	{
-		free_rooms(head);
-//		free(g_farm);
-		error_exit("no connection between start & end");
-	}
-	lets_go(head);
+	find_end_mark(head);
 }
 
+void		find_end_mark(t_rooms **head)
+{
+	t_rooms	*r;
+
+	r = get_fin(head);
+	if (mark_the_way(&r, 0) == 0)
+	{
+		free_rooms(head);
+		error_exit("no connection between start & end");
+	}
+	lets_go(head, -1, -1, get_fin(head));
+}
 
 int			is_comment(char *line)
 {	
@@ -59,7 +61,7 @@ int			is_comment(char *line)
 	return (0);
 }
 
-int is_link(char *line, t_rooms ***head)
+int			is_link(char *line, t_rooms ***head)
 {
 	char	**split;
 	int 	i;
@@ -78,12 +80,22 @@ int is_link(char *line, t_rooms ***head)
 	}
 	r1 = find_by_name(split[0], &head);
 	r2 = find_by_name(split[1], &head);
+	if (valid_n_link(r1, r2) == 0)
+	{
+		free_arr(&split);
+		return (0);
+	}
+	free_arr(&split);
+	return (1);
+}
+
+int			valid_n_link(t_rooms *r1, t_rooms *r2)
+{
 	if (r1 && r2)
 	{
 		if (ft_strequ(r1->name, r2->name))
 		{
 			error_cont("equal mames");
-			free_arr(&split);
 			return (0);
 		}
 		add_list_link(r1, &r2);
@@ -92,14 +104,12 @@ int is_link(char *line, t_rooms ***head)
 	else
 	{
 		error_cont("can't find room name");
-		free_arr(&split);
 		return (0);
 	}
-	free_arr(&split);
 	return (1);
 }
 
-t_rooms *find_by_name(char *name, t_rooms ****head)
+t_rooms		*find_by_name(char *name, t_rooms ****head)
 {
 	t_rooms		*tmp;
 
@@ -117,13 +127,11 @@ t_rooms *find_by_name(char *name, t_rooms ****head)
 }
 
 
-int			mark_the_way(t_rooms **room)
+int			mark_the_way(t_rooms **room, int i)
 {
-	t_rooms		*r;
-	int			i;
+	t_rooms	*r;
 
 	r = *room;
-	i = 0;
 	r->marked = 1;
 	while (r->links && r->links[i] != 0 && i < 200)
 	{
@@ -137,7 +145,7 @@ int			mark_the_way(t_rooms **room)
 			if (links_num(r->links[i]) > 1)
 			{
 				r->links[i]->dist = r->dist + 1 < r->links[i]->dist ? r->dist + 1 : r->links[i]->dist ;
-				mark_the_way(&r->links[i]);
+				mark_the_way(&r->links[i], 0);
 			}
 		}
 		i++;
@@ -146,45 +154,7 @@ int			mark_the_way(t_rooms **room)
 		r->links[i - 1]->marked = 0;
 	return (g_farm->sf_way);
 }
-//int			mark_the_way(t_rooms **room)
-//{
-//	t_rooms		*r;
-//	int			i;
-//
-//	r = *room;
-//	i = 0;
-//	r->marked = 1;
-//	while (r->links && r->links[i] != 0 && i < 200)
-//	{
-//		if (is_s_in_links(r->links) == 1)
-//		{
-//			r->marked = 0;
-//			g_farm->sf_way = 1;
-//		}
-//		else if (r->links[i]->marked == 0 && r->links[i]->is_f != 1) //&& r->links[i]->dist == 2147483647)
-//		{
-//			if (links_num(r->links[i]) > 1)
-//			{
-//				r->links[i]->dist = r->dist + 1 < r->links[i]->dist ? r->dist + 1 : r->links[i]->dist ;
-//				mark_the_way(&r->links[i]);
-//			}
-//		}
-//		i++;
-//	}
-//	r->marked = 0;
-//	return (g_farm->sf_way);
-//}
 
-int			is_s_in_links(t_rooms	**links)
-{
-	int		i;
-
-	i = -1;
-	while (links[++i])
-		if (links[i]->is_s == 1) //|| links[i]->is_f == 1)
-			return (1);
-	return (0);
-}
 int			links_num(t_rooms *r)
 {
 	int		i;

@@ -12,7 +12,7 @@
 
 #include "../hdr/lemin.h"
 
-t_rooms *new_room_alloc(int *cors, short is_s, short is_f, char *name)
+t_rooms		*new_room_alloc(int *cors, short is_s, short is_f, char *name)
 {
 	t_rooms	*new;
 
@@ -20,23 +20,7 @@ t_rooms *new_room_alloc(int *cors, short is_s, short is_f, char *name)
 		return (NULL);
 	new->is_s = (short) (is_s == 1 && g_farm->start != 1 ? 1 : 0);
 	new->is_f = (short) (is_f == 1 && g_farm->end != 1 ? 1 : 0);
-	if (is_s && g_farm->start != 1)
-	{
-		new->ants_in = g_farm->ants;
-		new->is_full = 1;
-		g_farm->start = 1;
-	}
-	else if (is_f && g_farm->end != 1)
-	{
-		new->ants_in = 0;
-		new->is_full = 0;
-		g_farm->end = 1;
-	}
-	else
-	{
-		new->ants_in = 0;
-		new->is_full = 0;
-	}
+	new_room_init(&new, is_s, is_f);
 	new->name = ft_strdup(name);
 	new->cors[0] = cors[0];
 	new->cors[1] = cors[1];
@@ -50,11 +34,34 @@ t_rooms *new_room_alloc(int *cors, short is_s, short is_f, char *name)
 	return (new);
 }
 
-void push_list_r_back(t_rooms **head, t_rooms *to_push)
+void		new_room_init(t_rooms **new, int is_s, int is_f)
+{
+	t_rooms	*tmp;
+
+	tmp = *new;
+	if (is_s && g_farm->start != 1)
+	{
+		tmp->ants_in = g_farm->ants;
+		tmp->is_full = 1;
+		g_farm->start = 1;
+	}
+	else if (is_f && g_farm->end != 1)
+	{
+		tmp->ants_in = 0;
+		tmp->is_full = 0;
+		g_farm->end = 1;
+	}
+	else
+	{
+		tmp->ants_in = 0;
+		tmp->is_full = 0;
+	}
+}
+
+void		push_list_r_back(t_rooms **head, t_rooms *to_push)
 {
 	t_rooms	*curr;
 
-	curr = NULL;
 	curr = *head;
 	if (curr)
 	{
@@ -64,11 +71,10 @@ void push_list_r_back(t_rooms **head, t_rooms *to_push)
 	}
 	else
 		*head = to_push;
-
 }
 
 
-int check_cors(int x, int y, t_rooms *head)
+int			check_cors(int x, int y, t_rooms *head)
 {
 	t_rooms	*tmp;
 
@@ -82,11 +88,11 @@ int check_cors(int x, int y, t_rooms *head)
 	return (0);
 }
 
-void add_list_link(t_rooms *link, t_rooms **room)
+void		add_list_link(t_rooms *link, t_rooms **room)
 {
 	t_rooms	*curr;
 	t_rooms	**tmp;
-	int			i;
+	int		i;
 
 	curr = *room;
 	if (!curr->links)
@@ -102,15 +108,10 @@ void add_list_link(t_rooms *link, t_rooms **room)
 	tmp = curr->links;
 	curr->links = list_join_links(&curr->links, i, link);
 	free(tmp);
-//	free_rooms(&tmp, i);
-//	curr->links[i] = link;
-	//curr->links[++i] = malloc(sizeof(t_rooms*));
-	//curr->links[i] = NULL;
 }
 
-void free_rooms(t_rooms **head)
+void		free_rooms(t_rooms **head)
 {
-
 	if (head && *head)
 	{
 		if ((*head)->next)
@@ -121,7 +122,7 @@ void free_rooms(t_rooms **head)
 	}
 }
 
-t_rooms **list_join_links(t_rooms ***old, int size, t_rooms *link)
+t_rooms		**list_join_links(t_rooms ***old, int size, t_rooms *link)
 {
 	t_rooms	**new;
 	t_rooms	**oldi;

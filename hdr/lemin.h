@@ -25,6 +25,7 @@ typedef struct		s_struct
 	short			start;
 	short			end;
 	short			sf_way;
+	short			is_first_ant;
 }					t_farm;
 
 typedef struct		s_list_r
@@ -47,7 +48,9 @@ typedef struct		s_ant
 	t_rooms			*room;
 }					t_ant;
 
-void lets_go(t_rooms **head);
+void			print_ants_steps(int n, char *name);
+int *ind_alloc(int len);
+void			lets_go(t_rooms **head, int i, int ind, t_rooms *fin);
 void			free_ants(t_ant ***ants);
 t_ant			**get_ants(int n, t_rooms *start);
 void			free_data(char	***data);
@@ -67,20 +70,24 @@ void 			push_list_r_back(t_rooms **head, t_rooms *to_push);
 void			push_list_link(t_rooms **head, t_rooms *to_push);
 void 			add_list_link(t_rooms *link, t_rooms **room);
 int				links_num(t_rooms *r);
-int mark_the_way(t_rooms **room);
+int				mark_the_way(t_rooms **room, int i);
 t_rooms **list_join_links(t_rooms ***old, int size, t_rooms *link);
 void			free_rooms(t_rooms **head);
 void			free_arr(char ***arr);
 int				is_s_in_links(t_rooms	**links);
 t_rooms 		*get_fin(t_rooms **head);
 t_rooms *get_start(t_rooms **head);
-int				ind_of_empty_r(t_rooms *r);
+int ind_of_empty_r(t_rooms *r, int i);
 int				lin_len(t_rooms **links);
 int				is_room_spaces(char *line);
 void			error_cont(char *info);
 int check_name(char *name, t_rooms *head);
 void			room_commands(char *line, short *sf, t_rooms **head);
 int				is_data_valid(char **data, int i);
+void			find_end_mark(t_rooms **head);
+int				valid_n_link(t_rooms *r1, t_rooms *r2);
+void			new_room_init(t_rooms **new, int is_s, int is_f);
+int				best_room(int *indxs, int len, t_rooms *r);
 
 void		show_list(t_rooms *head);
 #endif
