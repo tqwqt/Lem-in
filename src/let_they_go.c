@@ -6,13 +6,13 @@
 /*   By: vhavryle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 14:05:39 by vhavryle          #+#    #+#             */
-/*   Updated: 2018/03/23 14:05:40 by vhavryle         ###   ########.fr       */
+/*   Updated: 2018/03/30 13:04:50 by vhavryle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../hdr/lemin.h"
 
-void lets_go(t_rooms **head, int i, int ind, t_rooms *fin)
+void			lets_go(t_rooms **head, int i, int ind, t_rooms *fin)
 {
 	t_ant		**ants;
 
@@ -41,17 +41,6 @@ void lets_go(t_rooms **head, int i, int ind, t_rooms *fin)
 	free_ants(&ants);
 }
 
-void			print_ants_steps(int n, char *name)
-{
-	if (g_farm->is_first_ant == 1)
-	{
-		ft_printf("L%d-%s", n, name);
-		g_farm->is_first_ant = 0;
-	}
-	else
-		ft_printf(" L%d-%s", n, name);
-}
-
 int				lin_len(t_rooms **links)
 {
 	int			i;
@@ -62,7 +51,7 @@ int				lin_len(t_rooms **links)
 	return (i);
 }
 
-int ind_of_empty_r(t_rooms *r, int i)
+int				ind_of_empty_r(t_rooms *r, int i)
 {
 	int			*indxs;
 	int			len;
@@ -88,10 +77,10 @@ int ind_of_empty_r(t_rooms *r, int i)
 	return (ret);
 }
 
-int		best_room(int *indxs, int len, t_rooms *r)
+int				best_room(int *indxs, int len, t_rooms *r)
 {
-	int	ret;
-	int	i;
+	int			ret;
+	int			i;
 
 	i = 0;
 	if (indxs[0] == -1)
@@ -103,73 +92,14 @@ int		best_room(int *indxs, int len, t_rooms *r)
 	return (ret);
 }
 
-int *ind_alloc(int len)
+int				*ind_alloc(int len)
 {
-	int	i;
-	int	*indxs;
+	int			i;
+	int			*indxs;
 
 	indxs = malloc(sizeof(int) * len);
 	i = -1;
 	while (++i < len)
 		indxs[i] = -1;
 	return (indxs);
-}
-
-t_rooms *get_fin(t_rooms **head)
-{
-	t_rooms		*h;
-
-	h = *head;
-	while (h && h->is_f != 1)
-		h = h->next;
-	if (h && h->is_f == 1)
-		return (h);
-	return (0);
-}
-
-t_rooms *get_start(t_rooms **head)
-{
-	t_rooms		*h;
-
-	h = *head;
-	while (h && h->is_s != 1)
-		h = h->next;
-	if (h && h->is_s == 1)
-		return (h);
-	return (0);
-}
-
-t_ant			**get_ants(int n, t_rooms *start)
-{
-	t_ant		**new;
-	int			a;
-	int			i;
-
-	i = -1;
-	a = 0;
-
-	new = malloc(sizeof(t_ant*) * (n + 1));
-	while ( ++a <= n)
-	{
-		new[++i] = malloc(sizeof(t_ant));
-		new[i]->number = a;
-		new[i]->room = start;
-	}
-	//new[++i] = malloc(sizeof(t_ant));
-	new[++i] = NULL;
-	return (new);
-}
-
-void			free_ants(t_ant ***ants)
-{
-	t_ant	**tmp;
-	int		i;
-
-	i = -1;
-	tmp = *ants;
-	while (tmp[++i])
-	{
-		free(tmp[i]);
-	}
-	free(tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: vhavryle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 18:38:44 by vhavryle          #+#    #+#             */
-/*   Updated: 2017/10/26 18:38:47 by vhavryle         ###   ########.fr       */
+/*   Updated: 2018/03/30 13:20:32 by vhavryle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int 				ft_str_is_digit(char *str);
+int					ft_str_is_digit(char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_atoi(char *str);
 int					ft_isalnum(int c);

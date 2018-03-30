@@ -6,7 +6,7 @@
 #    By: vhavryle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/27 16:17:03 by vhavryle          #+#    #+#              #
-#    Updated: 2018/03/27 16:17:04 by vhavryle         ###   ########.fr        #
+#    Updated: 2018/03/30 13:15:22 by vhavryle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,10 @@ SRC = main.c \
 	lists.c \
 	links.c \
 	let_they_go.c \
+	validate_r.c \
+	print_out.c \
+	free_fun.c \
+	get_data.c \
 	gnl/get_next_line.c
 
 NAME = lem-in

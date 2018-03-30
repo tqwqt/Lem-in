@@ -6,7 +6,7 @@
 /*   By: vhavryle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 12:58:21 by vhavryle          #+#    #+#             */
-/*   Updated: 2017/11/07 12:58:23 by vhavryle         ###   ########.fr       */
+/*   Updated: 2018/03/30 13:20:14 by vhavryle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	size_t	i;//com
+	size_t	i;
 	int		j;
 
 	i = 0;

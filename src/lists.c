@@ -6,7 +6,7 @@
 /*   By: vhavryle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 13:24:40 by vhavryle          #+#    #+#             */
-/*   Updated: 2018/03/15 13:24:41 by vhavryle         ###   ########.fr       */
+/*   Updated: 2018/03/30 13:05:32 by vhavryle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_rooms		*new_room_alloc(int *cors, short is_s, short is_f, char *name)
 
 	if (!(new = (t_rooms *)malloc(sizeof(t_rooms))))
 		return (NULL);
-	new->is_s = (short) (is_s == 1 && g_farm->start != 1 ? 1 : 0);
-	new->is_f = (short) (is_f == 1 && g_farm->end != 1 ? 1 : 0);
+	new->is_s = (short)(is_s == 1 && g_farm->start != 1 ? 1 : 0);
+	new->is_f = (short)(is_f == 1 && g_farm->end != 1 ? 1 : 0);
 	new_room_init(&new, is_s, is_f);
 	new->name = ft_strdup(name);
 	new->cors[0] = cors[0];
@@ -42,19 +42,16 @@ void		new_room_init(t_rooms **new, int is_s, int is_f)
 	if (is_s && g_farm->start != 1)
 	{
 		tmp->ants_in = g_farm->ants;
-		tmp->is_full = 1;
 		g_farm->start = 1;
 	}
 	else if (is_f && g_farm->end != 1)
 	{
 		tmp->ants_in = 0;
-		tmp->is_full = 0;
 		g_farm->end = 1;
 	}
 	else
 	{
 		tmp->ants_in = 0;
-		tmp->is_full = 0;
 	}
 }
 
@@ -71,21 +68,6 @@ void		push_list_r_back(t_rooms **head, t_rooms *to_push)
 	}
 	else
 		*head = to_push;
-}
-
-
-int			check_cors(int x, int y, t_rooms *head)
-{
-	t_rooms	*tmp;
-
-	tmp = head;
-	while (tmp)
-	{
-		if (tmp->cors[0] == x && tmp->cors[1] == y)
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
 }
 
 void		add_list_link(t_rooms *link, t_rooms **room)
@@ -110,26 +92,13 @@ void		add_list_link(t_rooms *link, t_rooms **room)
 	free(tmp);
 }
 
-void		free_rooms(t_rooms **head)
-{
-	if (head && *head)
-	{
-		if ((*head)->next)
-			free_rooms(&(*head)->next);
-		free((*head)->name);
-		free((*head)->links);
-		free(*head);
-	}
-}
-
 t_rooms		**list_join_links(t_rooms ***old, int size, t_rooms *link)
 {
 	t_rooms	**new;
 	t_rooms	**oldi;
+	int		i;
 
 	oldi = *old;
-	int 	i;
-
 	i = -1;
 	new = malloc(sizeof(t_rooms*) * (size + 2));
 	while (oldi[++i] != 0)
