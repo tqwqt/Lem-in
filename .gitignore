@@ -1,3 +1,5 @@
 ign/
 
 *.DS_Store
+
+libft/*.DS_Store
